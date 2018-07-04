@@ -1,0 +1,255 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color:lightgray;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 110px;
+    border-bottom: 1px solid rgba(200, 200, 200, 0.5);
+    background-color: white;
+    box-shadow: 0 0 10px black;
+    position: fixed;
+    z-index: 999;
+    margin-top: -20px;
+}
+
+#logo {
+    padding-left: 25px;
+    margin: 15px 0 0 35px;
+    width: 197px;
+    height: 75px;
+}
+
+.menu_haut_droite {
+    display: flex;
+    justify-content: space-around;
+}
+
+#titre_header {
+    display: flex;
+    color: lightgray;
+    align-items: center;
+}
+
+.menu_header {
+    display: flex;
+    align-items: center;
+    padding-right: 30px;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.menu_header a {
+    text-align: right;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 24px;
+    text-decoration: none;
+    color: black;
+}
+
+/****************** Slider *********************/
+
+#slider {
+    position: relative;
+    overflow: hidden;
+    margin: 20px auto 0 auto;
+    border-radius: 4px;
+    padding-top: 120px;
+}
+
+#slider ul {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: 200px;
+    list-style: none;
+}
+
+#slider ul li {
+    position: relative;
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 1152px;
+    height: 500px;
+    background: #ccc;
+    text-align: center;
+    line-height: 300px;
+}
+
+a.control_prev,
+a.control_next {
+    position: absolute;
+    top: 50%;
+    z-index: 998;
+    display: block;
+    padding: 4% 3%;
+    width: auto;
+    height: auto;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 32px;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+a.control_prev:hover,
+a.control_next:hover {
+    opacity: 1;
+    -webkit-transition: all 0.2s ease;
+}
+
+a.control_prev {
+    border-radius: 0 2px 2px 0;
+}
+
+a.control_next {
+    right: 0;
+    border-radius: 2px 0 0 2px;
+}
+
+.slider_option {
+    position: relative;
+    margin: 10px auto;
+    width: 160px;
+    font-size: 18px;
+}
+
+/****************Google Map***************/
+
+h2 {
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+#carte_reservation {
+    display: flex;
+    justify-content: space-around;
+    /*padding-top: 160px;*/
+}
+
+#map {
+    width: 100%;
+    height: 700px;
+    border: 0;
+    background-color: lightgray;
+}
+
+/*************************** FORMULAIRE ************************/
+
+#reservation {
+    display: none;
+    background-color: rgb(235, 239, 243);
+    opacity: 0.8;
+    top: 20px;
+    width: 350px;
+    height: 680px;
+    padding: 10px;
+    border: 2px solid lightgray;
+}
+
+#reservation li {
+    color: black;
+    list-style: none;
+    margin-bottom: 1.5em;
+    font-weight: bold;
+}
+
+#reservation li span {
+    font-weight: normal;
+    color: #0081d5;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttonReservation {
+    padding: 5px 15px;
+    background-color: rgb(3, 189, 91);
+    border-radius: 7px;
+    color: white;
+    cursor: pointer;
+}
+
+.buttonClose {
+    padding: 5px 15px;
+    background-color: red;
+    border-radius: 7px;
+    color: white;
+    cursor: pointer;
+}
+
+.buttonEfface {
+    padding: 5px 15px;
+    background-color: dodgerblue;
+    border-radius: 7px;
+    color: white;
+    cursor: pointer;
+}
+
+#reservation h3 {
+    color: black;
+    font-size: 1.4em;
+    text-align: center;
+    text-decoration: underline;
+    padding-top: 10px;
+    padding-bottom: 25px;
+}
+
+.divReservation {
+    display: block;
+    width: auto;
+    margin: 0, 15px;
+    height: 80px;
+    background-color:black;
+    color: white;
+    font-size: 1em;
+    text-align: center;
+    padding-top: 30px;
+    border-top: 2px solid red;
+    border-bottom: 2px solid red;
+}
+#ligneStation, #ligneAdresse{
+    color: red;
+    font-size: 18px;
+}
+
+#canvas {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 1px solid black;
+}
+#compteur{
+    font-size: 1.5em;
+    color: white;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 15px;
+    height: 50px;
+}
+
+.text_footer {
+    padding-top: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.marque {
+    color: black;
+}

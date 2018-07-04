@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <title>Vélo V - Service de location de vélos</title>
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+</head>
+
+<body>
+    <!--Feuille de style générale-->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!--Feuille de style awesome pour flêches sur slider-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+    <header>
+        <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo veloV" /></a>
+        <h1 id="titre_header">Réservation de vélos en libre service sur Lyon</h1>
+        <div class="menu_header"><a href="#slider">Didacticiel</a> | <a href="#carte_reservation">Réserver un vélo</a></div>
+    </header>
+
+    <section class="slider">
+        <div id="slider">
+            <a href="#" class="control_next"><i class="fa fa-arrow-circle-right"></i></a>
+            <a href="#" class="control_prev"><i class="fa fa-arrow-circle-left"></i></a>
+            <ul>
+                <li><img src="img/slide1.jpg" alt="les veloV de Lyon - Image 01"></li>
+                <li><img src="img/slide2.jpg" alt="les veloV de Lyon - Image 02"></li>
+                <li><img src="img/slide3.jpg" alt="les veloV de Lyon - Image 03"></li>
+            </ul>
+        </div>
+
+    </section>
+
+    <h2>Carte de réservation des vélos</h2>
+
+    <div id="carte_reservation">
+        <!-- Div pour l'affichage de la carte google -->
+        <div id="map"></div>
+        <!-- Div pour l'affichage des infos stations -->
+        <div id="reservation">
+            <h3>Informations sur la station</h3>
+            <ul>
+                <li>Nom de la station : <span id="nomStation"></span></li>
+                <li>Adresse : <span id="adresse"></span></li>
+                <li>Etat : <span id="etatStation"></span></li>
+                <li>Place(s) totale(s) : <span id="placesTotales"></span></li>
+                <li>Place(s) disponible(s) : <span id="placesDispo"></span></li>
+                <li>Vélo(s) disponible(s) : <span id="velosDispo"></span></li>
+            </ul>
+            <span id="text_signature">Signature électronique* :</span>
+            <canvas id="canvas" width="350" height="150">
+            <p>Désolé, votre navigateur ne supporte pas Canvas. Mettez-vous à jour</p>
+        </canvas>
+            <div class="buttons">
+                <span class="buttonClose">Fermer</span>
+                <span class="buttonEfface">Effacer</span>
+                <span class="buttonReservation">Réserver</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="divReservation"><span id="ligneStation"></span><br /><span id="ligneAdresse"></span><br /><span id="compteur"></span></div>
+
+
+    <footer>
+        <div class="text_footer"><span class="marque">VeloV</span> - Service de locations de vélos sur Lyon<br />Copyright 2018 Arnaud Besnard pour Projet 3 OpenClassRooms</div>
+    </footer>
+    <!--Chargement du fichier JS Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--Chargement du fichier JS du slider-->
+    <script src="js/slider.js"></script>
+    <!--Chargement du fichier JS des markerClusterer-->
+    <script src="js/markerclusterer.js"></script>
+    <!--Chargement du script d'initialisation globale-->
+    <script src="js/main.js"></script>
+    <!--Chargement du script de la map-->
+    <script src="js/map.js"></script>
+    <!--Chargement du script des markers-->
+    <script src="js/markers.js"></script>
+    <!--Chargement du script du timer-->
+    <script src="js/timer.js"></script>
+    <!--Chargement du script du canvas-->
+    <script src="js/canvas.js"></script>
+    <!--Chargement de l'affichage de la carte google map avec clé API-->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALcFp3Rir4x_HdXJG26gxR00wd5_dDWr4&callback=initGlobal"></script>
+</body>
+
+</html>

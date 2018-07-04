@@ -1,0 +1,7 @@
+- Test condition sur le var paint = true ou false pour test signature avant réservation
+- Réaliser slider en objet et comme sur l'énnoncé avec animation
++ Approfondir le sessionStorage  = Insérer le nomStation et timer dedans
++ Créer timer
++ Faire le regroupement de markers
++ Améliorer system de réservation -> div block avec "aucune réservation en cours" et ajout données à la réservation
+

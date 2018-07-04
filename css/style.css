@@ -3,7 +3,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color:lightgray;
+    background-color: lightgray;
 }
 
 header {
@@ -199,6 +199,15 @@ h2 {
     cursor: pointer;
 }
 
+.buttonAnnul {
+    padding: 5px 15px;
+    background-color: red;
+    border-radius: 7px;
+    color: white;
+    cursor: pointer;
+    line-height: 2.5;
+}
+
 #reservation h3 {
     color: black;
     font-size: 1.4em;
@@ -212,16 +221,18 @@ h2 {
     display: block;
     width: auto;
     margin: 0, 15px;
-    height: 80px;
-    background-color:black;
+    height: 120px;
+    background-color: black;
     color: white;
     font-size: 1em;
     text-align: center;
-    padding-top: 30px;
+    padding-top: 10px;
     border-top: 2px solid red;
     border-bottom: 2px solid red;
 }
-#ligneStation, #ligneAdresse{
+
+#ligneStation,
+#ligneAdresse {
     color: red;
     font-size: 18px;
 }
@@ -231,7 +242,8 @@ h2 {
     margin-bottom: 15px;
     border: 1px solid black;
 }
-#compteur{
+
+#compteur {
     font-size: 1.5em;
     color: white;
 }

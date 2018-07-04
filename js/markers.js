@@ -96,11 +96,19 @@ var objMarkers = {
                 objTimer.initTimer(); // Appel de la fonction Timer()
                 $('#ligneStation').text("Vous avez réservé un vélo à la station : " + station.name);
                 $('#ligneAdresse').text("située à l'adresse : " + station.address);
-
+                $('.buttonAnnul').text('Annuler');
             }); //emplacement fermeture accolade parenthese de la fonction click;
+
             $('.buttonClose').click(function () {
                 $('#reservation').hide('slow');
             });
+        });
+        if (sessionStorage.length === 0) {
+            $('.buttonAnnul').css('display', 'none');
+        }
+        $('.buttonAnnul').click(function () {
+            //On vide le sessionStorage
+            sessionStorage.clear();
         });
     }
 };

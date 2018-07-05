@@ -1,9 +1,4 @@
-const stationFermee = 'img/markers/station_closed.png';
-const stationZero = 'img/markers/0.png';
-const station25 = 'img/markers/25.png';
-const station50 = 'img/markers/50.png';
-const station75 = 'img/markers/75.png';
-const station100 = 'img/markers/100.png';
+const ICONPATH = 'img/markers/';
 var donneesSessionName = sessionStorage.getItem('name');
 var donneesSessionAddress = sessionStorage.getItem('adresse');
 var donnesSessionTimer = sessionStorage.getItem('heure-reservation');
@@ -29,17 +24,17 @@ var objMarkers = {
         var statutStation = (station.available_bikes * 100) / (station.bike_stands);
         //Affectation des icones selon le poucentage de vélos dispos
         if (station.status != 'OPEN') {
-            iconBase = stationFermee; //Station fermée
+            iconBase = ICONPATH + 'station_closed.png'; //Station fermée
         } else if (statutStation === 100) {
-            iconBase = stationZero; // 100% des vélos dispos
+            iconBase = ICONPATH + '0.png'; // 100% des vélos dispos
         } else if (statutStation < 100 && statutStation >= 66) {
-            iconBase = station25; // 75% des vélos dispos
+            iconBase = ICONPATH + '25.png'; // 75% des vélos dispos
         } else if (statutStation < 66 && statutStation >= 33) {
-            iconBase = station50; //50% des vélos dispos
+            iconBase = ICONPATH + '50.png'; //50% des vélos dispos
         } else if (statutStation < 33 && statutStation > 0) {
-            iconBase = station75; // 25% des vélos dispos
+            iconBase = ICONPATH + '75.png'; // 25% des vélos dispos
         } else if (statutStation === 0) {
-            iconBase = station100; //Aucun vélo dispo
+            iconBase = ICONPATH + '100.png'; //Aucun vélo dispo
         }
         var marker = new google.maps.Marker({
             position: station.position,

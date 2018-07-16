@@ -9,6 +9,7 @@ var objTimer = {
 
         if (s <= 0) {
             $("#compteur").text("Votre réservation a expirée");
+            $('.buttonAnnul').css('display', 'none');
             //compteur.innerHTML = "Votre réservation a expirée<br />"
             sessionStorage.clear(); //Supprime les données du sessionStorage à la fin du décompte
         } else {

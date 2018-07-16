@@ -92,6 +92,7 @@ var objMarkers = {
                 $('#ligneStation').text("Vous avez réservé un vélo à la station : " + station.name);
                 $('#ligneAdresse').text("située à l'adresse : " + station.address);
                 $('.buttonAnnul').text('Annuler');
+                $('.buttonAnnul').css('display', 'initial');
             }); //emplacement fermeture accolade parenthese de la fonction click;
 
             $('.buttonClose').click(function () {
@@ -104,6 +105,7 @@ var objMarkers = {
         $('.buttonAnnul').click(function () {
             //On vide le sessionStorage
             sessionStorage.clear();
+            location.reload();
         });
     }
 };

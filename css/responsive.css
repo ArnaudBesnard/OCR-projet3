@@ -1,15 +1,31 @@
 @media screen and (max-width: 479px) {
+    html,
+    body {
+        width: 360px;
+    }
+    #logo {
+        width: 197px;
+        height: 75px;
+        margin: auto !important;
+        padding: 0;
+    }
+    #titre_header {
+        display: none;
+    }
+    header {
+        flex-direction: column;
+        width: 360px;
+        height: 110px;
+        margin-top: -20px;
+    }
+    .slider {
+        display: none;
 
+    }
 }
 
-@media screen and (min-width: 480px) and (max-width: 959px) {
+@media screen and (min-width: 480px) and (max-width: 959px) {}
 
-}
+@media screen and (min-width: 960px) and (max-width: 1280px) {}
 
-@media screen and (min-width: 960px) and (max-width: 1280px) {
-
-}
-
-@media screen and (min-width: 1281px) {
-
-}
+@media screen and (min-width: 1281px) {}

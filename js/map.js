@@ -2,7 +2,7 @@
 var objMap = {
     lat: 45.763413, //Latitude
     lng: 4.835462, //Longitude
-    zoom: 12, //Niveau de zoom de la carte
+    zoom: 13, //Niveau de zoom de la carte
 
     //Initialisation de la Map
     initMap: function () {

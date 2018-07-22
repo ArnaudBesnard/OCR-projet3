@@ -49,8 +49,31 @@ header {
     text-decoration: none;
     color: black;
 }
-.nav_burger{
+
+.nav_burger {
     display: none;
+}
+
+#div_burger {
+    width: 200px;
+    height: 100px;
+    padding-top: 30px;
+    padding-left: 30px;
+    background-color: lightgray;
+    border: 1px solid black;
+    z-index: 999;
+    position: absolute;
+    display: none;
+}
+
+#div_burger a {
+    
+    display: flex;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
 }
 
 /****************** Slider *********************/

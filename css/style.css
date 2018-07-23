@@ -57,23 +57,39 @@ header {
 #div_burger {
     width: 200px;
     height: 100px;
+    margin: 10px;
     padding-top: 30px;
     padding-left: 30px;
-    background-color: lightgray;
+    background-color: #222222;
     border: 1px solid black;
-    z-index: 999;
+    border-radius: 20px;
     position: absolute;
     display: none;
 }
 
 #div_burger a {
-    
+
     display: flex;
-    color: black;
+    color: white;
     text-decoration: none;
-    font-weight: bold;
+    /*font-weight: bold;*/
     font-size: 20px;
     cursor: pointer;
+}
+
+#div_burger a:hover {
+
+    font-weight: 900;
+}
+
+.fa-window-close {
+    color: white;
+}
+
+#close_menu {
+    position: absolute;
+    margin-left: 170px;
+    margin-top: -20px;
 }
 
 /****************** Slider *********************/
@@ -238,7 +254,7 @@ h2 {
     padding-bottom: 25px;
 }
 
-.divReservation {
+#divReservation {
     display: block;
     width: auto;
     margin: 0, 15px;

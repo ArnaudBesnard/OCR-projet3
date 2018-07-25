@@ -1,19 +1,11 @@
 /*Ecran maximum 479px*/
 
 @media screen and (max-width: 479px) {
-    html,
-    body {
-        width: 100%;
-    }
+
     header {
         flex-direction: column;
-        width: 100%;
-        height: 110px;
-        position: fixed;
     }
     #logo {
-        width: 197px;
-        height: 75px;
         padding: 0;
         margin-left: 90px;
     }
@@ -23,7 +15,56 @@
     .menu_header {
         display: none;
     }
+    .nav_burger {
+        display: block;
+        position: absolute;
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+    #slider {
+        display: none;
+    }
+    #carte_reservation {
+        width: 90%;
+        margin: auto;
+    }
+    #reservation {
+        width: 320px;
+        margin: auto;
+    }
+    #canvas {
+        width: 100%;
+    }
+    #divReservation {
+        width: 95%;
+        height: 190px;
+        margin: auto;
+    }
+    #ligneAdresse{
+        padding: 15px;
+    }
+    footer {
+        display: none;
+    }
+}
 
+/*Ecran entre 480px et 959px*/
+
+@media screen and (min-width: 480px) and (max-width: 959px) {
+
+    header {
+        flex-direction: column;
+    }
+    #logo {
+        padding: 0;
+        margin-left: 90px;
+    }
+    #titre_header {
+        display: none;
+    }
+    .menu_header {
+        display: none;
+    }
     .nav_burger {
         display: block;
         position: absolute;
@@ -33,76 +74,10 @@
     .slider {
         display: none;
     }
-    /*#slider ul li {
-        max-width: 90%;
-        max-height: auto;
-    }*/
-    #carte_reservation {
-        width: 90%;
-        margin: auto;
-    }
-    #reservation {
-        width: 350px;
-    }
-    #canvas {
-        width: 330px;
-    }
-    #divReservation {
-
-        width: 100%;
-        height: 190px;
-    }
-    footer {
-        display: none;
-    }
-}
-
-/*Ecran entre 480px et 959px*/
-
-@media screen and (min-width: 480px) and (max-width: 959px) {}
-
-html,
-body {
-    width: 100%;
-}
-
-header {
-    flex-direction: column;
-    width: 100%;
-    height: 110px;
-    position: fixed;
-}
-
-#logo {
-    width: 197px;
-    height: 75px;
-    padding: 0;
-    margin-left: 90px;
-}
-
-#titre_header {
-    display: none;
-}
-
-.menu_header {
-    display: none;
-}
-
-.nav_burger {
-    display: block;
-    position: absolute;
-    margin-left: 20px;
-    margin-top: 20px;
-}
-
-.slider {
-    display: none;
 }
 
 /*Ecran entre 960px et 1280px*/
 
-@media screen and (min-width: 960px) and (max-width: 1280px) {}
+@media screen and (min-width: 960px) and (max-width: 1280px) {
 
-/*Ecran minimum de 1281px*/
-
-@media screen and (min-width: 1281px) {}
+}

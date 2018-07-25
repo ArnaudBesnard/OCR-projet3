@@ -1,59 +1,36 @@
-   jQuery(document).ready(function ($) {
+var carousel = $(".carousel"),
+    currdeg = 0;
+
+$(".next").on("click", {
+    d: "n"
+}, rotate);
+$(".prev").on("click", {
+    d: "p"
+}, rotate);
+
+function rotate(e) {
+    if (e.data.d == "n") {
+        currdeg = currdeg - 60;
+    }
+    if (e.data.d == "p") {
+        currdeg = currdeg + 60;
+    }
+    carousel.css({
+        "-webkit-transform": "rotateY(" + currdeg + "deg)",
+        "-moz-transform": "rotateY(" + currdeg + "deg)",
+        "-o-transform": "rotateY(" + currdeg + "deg)",
+        "transform": "rotateY(" + currdeg + "deg)"
+    });
+}
 
 
-     var slideCount = $('#slider ul li').length;
-     var slideWidth = $('#slider ul li').width();
-     var slideHeight = $('#slider ul li').height();
-     var sliderUlWidth = slideCount * slideWidth;
+//Gestion du slider via le clavier
+$('body').keydown(function (e) {
+    if (e.keyCode === 39) {
+        console.log("click vers la droite")
 
-     $('#slider').css({
-       width: slideWidth,
-       height: slideHeight
-     });
+    } else if (e.keyCode === 37) {
+        console.log("click vers la gauche")
 
-     $('#slider ul').css({
-       width: sliderUlWidth,
-       marginLeft: -slideWidth
-     });
-
-     $('#slider ul li:last-child').prependTo('#slider ul');
-     //fonction slider vers la gauche
-     function moveLeft() {
-       $('#slider ul').animate({
-         left: +slideWidth
-       }, 200, function () {
-         $('#slider ul li:last-child').prependTo('#slider ul');
-         $('#slider ul').css('left', '');
-       });
-     };
-     //Fonction slider vers la droite
-     function moveRight() {
-       $('#slider ul').animate({
-         left: -slideWidth
-       }, 200, function () {
-         $('#slider ul li:first-child').appendTo('#slider ul');
-         $('#slider ul').css('left', '');
-       });
-     };
-
-     $('a.control_prev').click(function () {
-       moveLeft();
-     });
-
-     $('a.control_next').click(function () {
-       moveRight();
-     });
-
-     //Gestion du slider via le clavier
-     $('body').keydown(function (e) {
-       if (e.keyCode === 39) {
-         console.log("click vers la droite")
-         moveRight();
-       } else if (e.keyCode === 37) {
-         console.log("click vers la gauche")
-         moveLeft();
-       }
-     })
-
-
-   });
+    }
+})

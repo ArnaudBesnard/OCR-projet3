@@ -94,85 +94,108 @@ header {
 
 /****************** Slider *********************/
 
-#slider {
+.container {
+    padding-top: 150px;
+    padding-bottom: 50px;
+    margin: 0 auto;
+    width: 350px;
+    height: 280px;
     position: relative;
-    overflow: hidden;
-    margin: 20px auto 0 auto;
-    border-radius: 4px;
-    padding-top: 120px;
+    perspective: 1500px;
 }
 
-#slider ul {
-    position: relative;
-    margin: 0;
-    padding: 0;
-    height: 200px;
-    list-style: none;
-}
-
-#slider ul li {
-    position: relative;
-    display: block;
-    float: left;
-    margin: 0;
-    padding: 0;
-    width: 1152px;
-    height: 500px;
-    background: #ccc;
-    text-align: center;
-    line-height: 300px;
-}
-
-a.control_prev,
-a.control_next {
+.carousel {
+    height: 100%;
+    width: 100%;
     position: absolute;
-    top: 50%;
-    z-index: 998;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+}
+
+.item {
     display: block;
-    padding: 4% 3%;
-    width: auto;
-    height: auto;
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
+    position: absolute;
+    width: 350px;
+    height: 280px;
+    opacity: 0.95;
+    border-radius: 10px;
+}
+
+.a {
+    transform: rotateY(0deg) translateZ(345px);
+    background-image: url(../img/slide1.png);
+    background-repeat: no-repeat;
+}
+
+.b {
+    transform: rotateY(60deg) translateZ(345px);
+    background-image: url(../img/slide2.png);
+    background-repeat: no-repeat;
+}
+
+.c {
+    transform: rotateY(120deg) translateZ(345px);
+    background-image: url(../img/slide3.png);
+    background-repeat: no-repeat;
+}
+
+.d {
+    transform: rotateY(180deg) translateZ(345px);
+    background-image: url(../img/slide4.png);
+    background-repeat: no-repeat;
+}
+
+.e {
+    transform: rotateY(240deg) translateZ(345px);
+    background-image: url(../img/slide5.png);
+    background-repeat: no-repeat;
+}
+
+.f {
+    transform: rotateY(300deg) translateZ(345px);
+    background-image: url(../img/slide6.png);
+    background-repeat: no-repeat;
+}
+
+.next,
+.prev {
     font-size: 32px;
-    opacity: 0.8;
+    color: gray;
+    position: absolute;
+    top: 280px;
+    /*padding: 1em 2em;*/
     cursor: pointer;
 }
 
-a.control_prev:hover,
-a.control_next:hover {
-    opacity: 1;
-    -webkit-transition: all 0.2s ease;
+.next:hover,
+.prev:hover {
+    color: black;
 }
 
-a.control_prev {
-    border-radius: 0 2px 2px 0;
+.next:active,
+.prev:active {
+    top: 280px;
 }
 
-a.control_next {
-    right: 0;
-    border-radius: 2px 0 0 2px;
+.next {
+    right: 5em;
 }
 
-.slider_option {
-    position: relative;
-    margin: 10px auto;
-    width: 160px;
-    font-size: 18px;
+.prev {
+    left: 5em;
 }
 
 /****************Google Map***************/
 
 h2 {
     text-align: center;
-    padding-bottom: 25px;
+    padding-top: 25px;
+    padding-bottom: 5px;
 }
 
 #carte_reservation {
     display: flex;
     justify-content: space-around;
-    /*padding-top: 160px;*/
 }
 
 #map {

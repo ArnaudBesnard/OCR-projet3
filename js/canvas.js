@@ -12,6 +12,9 @@ var objCanvas = {
             addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
             redraw();
         });
+        /******/
+
+        /******/
 
         $('#canvas').mousemove(function (e) {
             if (paint) {

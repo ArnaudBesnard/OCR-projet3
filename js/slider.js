@@ -27,10 +27,15 @@ function rotate(e) {
 //Gestion du slider via le clavier
 $('body').keydown(function (e) {
     if (e.keyCode === 39) {
-        console.log("click vers la droite")
-
+        currdeg = currdeg - 60;
+        carousel.css({
+            "transform": "rotateY(" + currdeg + "deg)"
+        })
     } else if (e.keyCode === 37) {
-        console.log("click vers la gauche")
+        currdeg = currdeg + 60;
+        carousel.css({
+            "transform": "rotateY(" + currdeg + "deg)"
+        })
 
     }
 })

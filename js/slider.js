@@ -1,41 +1,47 @@
-var carousel = $(".carousel"),
-    currdeg = 0;
+var carousel = $(".carousel");
 
-$(".next").on("click", {
-    d: "n"
-}, rotate);
-$(".prev").on("click", {
-    d: "p"
-}, rotate);
+var objSlider = {
 
-function rotate(e) {
-    if (e.data.d == "n") {
-        currdeg = currdeg - 60;
+    currDeg: 0,
+
+    initSlider: function () {
+        $(".next").on("click", {
+            d: "n"
+        }, rotate);
+        $(".prev").on("click", {
+            d: "p"
+        }, rotate);
+
+        function rotate(e) {
+            if (e.data.d == "n") {
+                objSlider.currDeg = objSlider.currDeg - 60;
+            }
+            if (e.data.d == "p") {
+                objSlider.currDeg = objSlider.currDeg + 60;
+            }
+            carousel.css({
+                "-webkit-transform": "rotateY(" + objSlider.currDeg + "deg)",
+                "-moz-transform": "rotateY(" + objSlider.currDeg + "deg)",
+                "-o-transform": "rotateY(" + objSlider.currDeg + "deg)",
+                "transform": "rotateY(" + objSlider.currDeg + "deg)"
+            });
+        }
+
+
+        //Gestion du slider via le clavier
+        $('body').keydown(function (e) {
+            if (e.keyCode === 39) {
+                objSlider.currDeg = objSlider.currDeg - 60;
+                carousel.css({
+                    "transform": "rotateY(" + objSlider.currDeg + "deg)"
+                })
+            } else if (e.keyCode === 37) {
+                objSlider.currDeg = objSlider.currDeg + 60;
+                carousel.css({
+                    "transform": "rotateY(" + objSlider.currDeg + "deg)"
+                })
+
+            }
+        })
     }
-    if (e.data.d == "p") {
-        currdeg = currdeg + 60;
-    }
-    carousel.css({
-        "-webkit-transform": "rotateY(" + currdeg + "deg)",
-        "-moz-transform": "rotateY(" + currdeg + "deg)",
-        "-o-transform": "rotateY(" + currdeg + "deg)",
-        "transform": "rotateY(" + currdeg + "deg)"
-    });
 }
-
-
-//Gestion du slider via le clavier
-$('body').keydown(function (e) {
-    if (e.keyCode === 39) {
-        currdeg = currdeg - 60;
-        carousel.css({
-            "transform": "rotateY(" + currdeg + "deg)"
-        })
-    } else if (e.keyCode === 37) {
-        currdeg = currdeg + 60;
-        carousel.css({
-            "transform": "rotateY(" + currdeg + "deg)"
-        })
-
-    }
-})

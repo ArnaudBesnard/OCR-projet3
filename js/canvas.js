@@ -4,31 +4,31 @@ var objCanvas = {
         var canvas = document.querySelector('#canvas');
         var context = canvas.getContext('2d');
 
-        $('#canvas').mousedown(function (e) {
-            var mouseX = e.pageX - this.offsetLeft;
-            var mouseY = e.pageY - this.offsetTop;
+        $('#canvas').mousedown(function (event) {
+            var mouseX = event.pageX - this.offsetLeft;
+            var mouseY = event.pageY - this.offsetTop;
 
             paint = true;
-            addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
+            addClick(event.pageX - this.offsetLeft, event.pageY - this.offsetTop);
             redraw();
         });
         /******/
 
         /******/
 
-        $('#canvas').mousemove(function (e) {
+        $('#canvas').mousemove(function (event) {
             if (paint) {
-                addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
+                addClick(event.pageX - this.offsetLeft, event.pageY - this.offsetTop, true);
                 redraw();
             }
         });
 
-        $('#canvas').mouseup(function (e) {
+        $('#canvas').mouseup(function (event) {
             paint = false;
 
         });
 
-        $('#canvas').mouseleave(function (e) {
+        $('#canvas').mouseleave(function (event) {
             paint = false;
         });
 

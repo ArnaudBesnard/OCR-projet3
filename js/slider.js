@@ -12,11 +12,11 @@ var objSlider = {
             d: "p"
         }, rotate);
 
-        function rotate(e) {
-            if (e.data.d == "n") {
+        function rotate(event) {
+            if (event.data.d == "n") {
                 objSlider.currDeg = objSlider.currDeg - 60;
             }
-            if (e.data.d == "p") {
+            if (event.data.d == "p") {
                 objSlider.currDeg = objSlider.currDeg + 60;
             }
             carousel.css({
@@ -29,13 +29,13 @@ var objSlider = {
 
 
         //Gestion du slider via le clavier
-        $('body').keydown(function (e) {
-            if (e.keyCode === 39) {
+        $('body').keydown(function (event) {
+            if (event.keyCode === 39) {
                 objSlider.currDeg = objSlider.currDeg - 60;
                 carousel.css({
                     "transform": "rotateY(" + objSlider.currDeg + "deg)"
                 })
-            } else if (e.keyCode === 37) {
+            } else if (event.keyCode === 37) {
                 objSlider.currDeg = objSlider.currDeg + 60;
                 carousel.css({
                     "transform": "rotateY(" + objSlider.currDeg + "deg)"

@@ -6,12 +6,27 @@
     <meta name="viewport" content="initial-scale=1.0">
     <title>Vélo'V - Service de location de vélos</title>
     <link rel="icon" type="image/png" href="img/favicon.png" />
+    <meta name="description" content="Site web et application de réservation de Vélos sur la ville de Lyon" />
+    <meta name="keywords" content="Lyon, velov, reservation, vélos" />
+    <meta name="robots" content="all" />
+    <meta name="language" content="fr" />
+    <!--Twitter card-->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="@VeloV" />
+    <meta name="twitter:description" content="Velo'V. Réservez votre vélo'v sur notre site web" />
+    <meta name="twitter:image" content="http://projet3.arnaudbesnard.fr/img/logo.png" />
+    <meta name="twitter:title" content="Réservez votre véloV" />
+    <!--Opengraph - Facebook-->
+    <meta property="og:title" content="Velo'V, réservez votre Vélo'V" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://projet3.arnaudbesnard.fr" />
+    <meta property="og:image" content="http://projet3.arnaudbesnard.fr/img/logo.png" />
+    <meta property="og:description" content="Velo'V. Réservez votre vélo'v sur notre site web" />
 </head>
 
 <body>
-    <!--Feuille de style générale-->
+    <!--Feuille de style générale et responsive-->
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/responsive.css">
     <!--Feuille de style awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -24,6 +39,7 @@
     </header>
 
     <section id="slider">
+        <h2></h2>
         <div class="container">
             <div class="carousel">
                 <div class="item a"></div>
@@ -35,11 +51,11 @@
             </div>
         </div>
         <div class="next"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
-        <div class="prev"><i class="fa fa-arrow-circle-left"></i></div>
+        <div class="prev"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></div>
 
     </section>
 
-    <h2>Carte de réservation des vélos</h2>
+    <h1>Carte de réservation des vélos</h1>
 
     <div id="carte_reservation">
         <!-- Div pour l'affichage de la carte google -->
@@ -89,7 +105,8 @@
     <script src="js/timer.js"></script>
     <!--Chargement du script du canvas-->
     <script src="js/canvas.js"></script>
-    <script src="js/responsive.js"></script>
+    <!--Chargement du menu Burger pour responsive-->
+    <script src="js/menuBurger.js"></script>
     <!--Chargement de l'affichage de la carte google map avec clé API-->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALcFp3Rir4x_HdXJG26gxR00wd5_dDWr4&callback=initGlobal"></script>
 </body>

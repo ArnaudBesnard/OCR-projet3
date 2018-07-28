@@ -1,7 +1,6 @@
 canvas.width = 350;
 canvas.height = 150;
 
-
 var objCanvas = {
 
     initCanvas: function () {
@@ -19,9 +18,7 @@ var objCanvas = {
         y: 0
     },
     canvas: document.getElementById("canvas"),
-    lastPos: function () {
-        var lastPos = objCanvas.mousePos
-    },
+
     mouseDown: function () {
         this.canvas.addEventListener("mousedown", function (e) {
             objCanvas.drawing = true;
@@ -49,7 +46,6 @@ var objCanvas = {
         if (objCanvas.drawing) {
             ctx.lineTo(objCanvas.mousePos.x, objCanvas.mousePos.y);
             ctx.stroke();
-
             lastPos = objCanvas.mousePos;
         }
     },
@@ -103,7 +99,6 @@ window.requestAnimFrame = (function (callback) {
         window.setTimeout(callback, 1000 / 60);
     };
 })();
-
 $('.buttonEfface').click(function () {
     objCanvas.efface();
     objCanvas.initCanvas();

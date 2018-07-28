@@ -36,10 +36,10 @@ var objTimer = {
         this.duree = 1200; //Au reset, on réinitialise le timer à 1200s
     },
     // Calcul de la différence entre l'heure de reservation et l'heure actuelle
-    diffTime: function(){
+    diffTime: function () {
         var timeReserv = sessionStorage.getItem('heure-reservation');
         var timeActuelle = new Date().getTime();
-        var diff = Math.round(1200 - ((timeActuelle - timeReserv)/1000));
+        var diff = Math.round(1200 - ((timeActuelle - timeReserv) / 1000));
         return diff;
     }
 

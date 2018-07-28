@@ -3,7 +3,7 @@
 + Créer timer
 + Faire le regroupement de markers
 + Améliorer system de réservation -> div block avec "aucune réservation en cours" et ajout données à la réservation
-- Rendre le canvas tactile
++ Rendre le canvas tactile
 - Terminer le responsive design
-- Passer au w3c validator
++ Passer au w3c validator
 

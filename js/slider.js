@@ -27,7 +27,6 @@ var objSlider = {
             });
         }
 
-
         //Gestion du slider via le clavier
         $('body').keydown(function (event) {
             if (event.keyCode === 39) {

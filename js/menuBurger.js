@@ -1,5 +1,5 @@
 var objMenuBurger = {
-    
+
     initBurger: function () {
 
         $('.nav_burger').click(function () {

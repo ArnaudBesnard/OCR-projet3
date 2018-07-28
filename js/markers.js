@@ -82,19 +82,23 @@ var objMarkers = {
             $('#velosDispo').text(station.available_bikes);
 
             $('.buttonReservation').click(function () {
-                sessionStorage.setItem('adresse', station.name); //Stockage des données "station.name" dans le sessionStorage
-                sessionStorage.setItem('name', station.address); //Stockage des données "station.address" dans le sessionStorage
-                var time = new Date();
-                sessionStorage.setItem('heure-reservation', time.getTime()); //Stockage de l'heure du click dans le sessionStorage
-                var heureReservation = sessionStorage.getItem('heure-reservation');
-                objTimer.resetTimer(); //On reset le timer()
-                objTimer.initTimer(); // Appel de la fonction Timer()
-                $('#ligneStation').text("Vous avez réservé un vélo à la station : " + station.name);
-                $('#ligneAdresse').text("située à l'adresse : " + station.address);
-                $('.buttonAnnul').text('Annuler');
-                $('.buttonAnnul').css('display', 'initial');
-            }); //emplacement fermeture accolade parenthese de la fonction click;
+                if (objCanvas.drawing == false) {
+                    alert("Signature obligatoire");
+                } else {
+                    sessionStorage.setItem('adresse', station.name); //Stockage des données "station.name" dans le sessionStorage
+                    sessionStorage.setItem('name', station.address); //Stockage des données "station.address" dans le sessionStorage
+                    var time = new Date();
+                    sessionStorage.setItem('heure-reservation', time.getTime()); //Stockage de l'heure du click dans le sessionStorage
+                    var heureReservation = sessionStorage.getItem('heure-reservation');
+                    objTimer.resetTimer(); //On reset le timer()
+                    objTimer.initTimer(); // Appel de la fonction Timer()
+                    $('#ligneStation').text("Vous avez réservé un vélo à la station : " + station.name);
+                    $('#ligneAdresse').text("située à l'adresse : " + station.address);
+                    $('.buttonAnnul').text('Annuler');
+                    $('.buttonAnnul').css('display', 'initial');
+                }
 
+            }); //emplacement fermeture accolade parenthese de la fonction click;
             $('.buttonClose').click(function () {
                 $('#reservation').hide('slow');
             });

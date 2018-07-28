@@ -1,76 +1,111 @@
+canvas.width = 350;
+canvas.height = 150;
+
+
 var objCanvas = {
 
     initCanvas: function () {
-        var canvas = document.querySelector('#canvas');
-        var context = canvas.getContext('2d');
-
-        $('#canvas').mousedown(function (event) {
-            var mouseX = event.pageX - this.offsetLeft;
-            var mouseY = event.pageY - this.offsetTop;
-
-            paint = true;
-            addClick(event.pageX - this.offsetLeft, event.pageY - this.offsetTop);
-            redraw();
-        });
-        /******/
-
-        /******/
-
-        $('#canvas').mousemove(function (event) {
-            if (paint) {
-                addClick(event.pageX - this.offsetLeft, event.pageY - this.offsetTop, true);
-                redraw();
-            }
-        });
-
-        $('#canvas').mouseup(function (event) {
-            paint = false;
-
-        });
-
-        $('#canvas').mouseleave(function (event) {
-            paint = false;
-        });
-
-        var clickX = new Array();
-        var clickY = new Array();
-        var clickDrag = new Array();
-        var paint;
-
-        function addClick(x, y, dragging) {
-            clickX.push(x);
-            clickY.push(y);
-            clickDrag.push(dragging);
-        }
-
-        function redraw() {
-            context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
-            context.strokeStyle = "#333";
-            context.lineJoin = "round";
-            context.lineWidth = 4;
-
-            for (var i = 0; i < clickX.length; i++) {
-                context.beginPath();
-                if (clickDrag[i] && i) {
-                    context.moveTo(clickX[i - 1], clickY[i - 1]);
-                } else {
-                    context.moveTo(clickX[i] - 1, clickY[i]);
-                }
-                context.lineTo(clickX[i], clickY[i]);
-                context.closePath();
-                context.stroke();
-            }
-        }
-
-        function efface() {
-            context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+        objCanvas.mouseDown();
+        objCanvas.mouseUp();
+        objCanvas.mouseMove();
+        objCanvas.touchStart();
+        objCanvas.touchEnd();
+        objCanvas.touchMove();
+        objCanvas.drawLoop();
+    },
+    drawing: false,
+    mousePos: {
+        x: 0,
+        y: 0
+    },
+    canvas: document.getElementById("canvas"),
+    lastPos: function () {
+        var lastPos = objCanvas.mousePos
+    },
+    mouseDown: function () {
+        this.canvas.addEventListener("mousedown", function (e) {
+            objCanvas.drawing = true;
+            objCanvas.lastPos = objCanvas.getMousePos(objCanvas.canvas, e);
+        }, false);
+    },
+    mouseUp: function () {
+        objCanvas.canvas.addEventListener("mouseup", function (e) {
+            objCanvas.drawing = false;
+        }, false);
+    },
+    mouseMove: function () {
+        this.canvas.addEventListener("mousemove", function (e) {
+            objCanvas.mousePos = objCanvas.getMousePos(objCanvas.canvas, e);
+        }, false);
+    },
+    getMousePos: function (canvasDom, mouseEvent) {
+        var rect = canvasDom.getBoundingClientRect();
+        return {
+            x: mouseEvent.clientX - rect.left,
+            y: mouseEvent.clientY - rect.top
         };
-        $('.buttonEfface').click(function () {
-            efface();
-            objCanvas.initCanvas();
+    },
+    renderCanvas: function () {
+        if (objCanvas.drawing) {
+            ctx.lineTo(objCanvas.mousePos.x, objCanvas.mousePos.y);
+            ctx.stroke();
 
-        });
-
+            lastPos = objCanvas.mousePos;
+        }
+    },
+    drawLoop: function () {
+        (function drawLoop() {
+            requestAnimFrame(drawLoop);
+            objCanvas.renderCanvas();
+        })();
+    },
+    getTouchPos: function (canvasDom, touchEvent) {
+        var rect = canvasDom.getBoundingClientRect();
+        return {
+            x: touchEvent.touches[0].clientX - rect.left,
+            y: touchEvent.touches[0].clientY - rect.top
+        };
+    },
+    touchStart: function () {
+        objCanvas.canvas.addEventListener("touchstart", function (e) {
+            objCanvas.mousePos = objCanvas.getTouchPos(objCanvas.canvas, e);
+            var touch = e.touches[0];
+            var mouseEvent = new MouseEvent("mousedown", {
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+            objCanvas.canvas.dispatchEvent(mouseEvent);
+        }, false);
+    },
+    touchEnd: function () {
+        objCanvas.canvas.addEventListener("touchend", function (e) {
+            var mouseEvent = new MouseEvent("mouseup", {});
+            objCanvas.canvas.dispatchEvent(mouseEvent);
+        }, false);
+    },
+    touchMove: function () {
+        objCanvas.canvas.addEventListener("touchmove", function (e) {
+            var touch = e.touches[0];
+            var mouseEvent = new MouseEvent("mousemove", {
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+            objCanvas.canvas.dispatchEvent(mouseEvent);
+        }, false);
+    },
+    efface: function () {
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        ctx.beginPath();
     }
-
 }
+window.requestAnimFrame = (function (callback) {
+    return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimaitonFrame || function (callback) {
+        window.setTimeout(callback, 1000 / 60);
+    };
+})();
+
+$('.buttonEfface').click(function () {
+    objCanvas.efface();
+    objCanvas.initCanvas();
+});
+var ctx = objCanvas.canvas.getContext("2d");
